@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Weather Forecast" icon-name="standard:forecasts">
+        <lightning-layout>
+            <lightning-layout-item padding="around-small" size="10">
+                <lightning-input type="text" name="EnterCity" label="Enter City" value={city}
+                    onchange={onCityChange}></lightning-input>
+                <br>
+                <lightning-button label="Submit" variant="brand" onclick={getWeatherData}></lightning-button>
+            </lightning-layout-item>
+            <template if:true={showSpinner}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+        </lightning-layout>
+        <template if:true={showWeatherInfo}>
+            <lightning-card title={getLocationName} style="align-items: center;">
+                <p class="slds-p-horizontal_small">
+                    {weatherData.current.condition.text}&nbsp;{weatherData.current.temp_c}&#8451;</p>
+            </lightning-card>
+            <div style="display: flex;">
+                <template for:each={weatherData.forecast.forecastday} for:item="forecast">
+                    <div key={forecast.date}>
+                        <lightning-card title={forecast.date}>
+                            <p class="slds-p-horizontal_small">{weatherData.current.condition.text}
+                            </p>
+                            <p class="slds-p-horizontal_small">Max: {forecast.day.maxtemp_c}&#8451;&nbsp;Min:
+                                {forecast.day.mintemp_c}&#8451;
+                            </p>
+                        </lightning-card>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+</template>

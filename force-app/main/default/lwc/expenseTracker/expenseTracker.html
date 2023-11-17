@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Enter New Item" icon-name="standard:product_item">
+        <div style="padding: 1% 2% 1% 2%;">
+            <lightning-input type="text" name="Item Name" label="Item Name" required></lightning-input>
+            <div class="slds-grid">
+                <div class="slds-col">
+                    <lightning-input type="number" name="Quantity" label="Quantity" required></lightning-input>
+                </div>
+                &nbsp;
+                <div class="slds-col">
+                    <lightning-combobox label="Quantity Unit" options={quantityPicklist} onchange={handleQuantityUnit}
+                        required></lightning-combobox>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>

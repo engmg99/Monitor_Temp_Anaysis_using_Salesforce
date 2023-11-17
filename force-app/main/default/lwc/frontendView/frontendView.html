@@ -1,0 +1,18 @@
+<template>
+    <lightning-card>
+        <div class="slds-p-around_medium lgc-bg">
+            <div style="display: flex;">
+                <div class="avatarDiv">
+                    <lightning-avatar variant="circle"
+                        src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW"
+                        fallback-icon-name="standard:person_account" alternative-text="Amy Weaver"
+                        class="slds-m-right_small"></lightning-avatar>
+                </div>
+                <div style="padding-left: 5px;">
+                    <b style="font-size: 20px;"> V McCarthy </b>
+                </div>
+            </div>
+            <lightning-tree items={itemsFromJson}></lightning-tree>
+        </div>
+    </lightning-card>
+</template>
